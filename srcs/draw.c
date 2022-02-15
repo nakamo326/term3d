@@ -30,7 +30,7 @@ void draw_point(t_point *point, char **canvas)
 	if (is_drawable_point(x_pos, CANVAS_X_SIZE)
 		&& is_drawable_point(y_pos, CANVAS_Y_SIZE))
 	{
-		canvas[y_pos][x_pos] = '@';
+		canvas[y_pos][x_pos] = '.';
 	}
 }
 

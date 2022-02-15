@@ -6,14 +6,16 @@ CFLAGS := -Wall -Wextra -Werror -MMD -MP
 INCLUDES := -I./includes -I./libft
 
 SRCDIR := srcs
-SRCFILE := srcs/input.c srcs/main.c srcs/canvas.c srcs/draw.c srcs/convert_to_point.c 
+SRCFILE := srcs/input.c srcs/main.c srcs/canvas.c srcs/draw.c srcs/convert_to_point.c
 OBJDIR := objs
 OBJS = $(patsubst $(SRCDIR)%,$(OBJDIR)%,$(SRCFILE:.c=.o))
 DEPS = $(patsubst $(SRCDIR)%,$(OBJDIR)%,$(SRCFILE:.c=.d))
 
 
-LIBFTDIR	:= libft
-LIBFT		:= $(LIBFTDIR)/libft.a
+LIBFTDIR := libft
+LIBFT := $(LIBFTDIR)/libft.a
+
+LIB := -lm
 
 # ==== Align length to format compile message ==== #
 ALIGN := $(shell tr ' ' '\n' <<<"$(SRCFILE)" | while read line; do echo \
@@ -23,7 +25,7 @@ all: $(NAME)
 -include $(DEPS)
 
 $(NAME): $(OBJS) $(LIBFT)
-	@$(CC) $(CFLAGS) $^ $(INCLUDES) $(LIBS) -o $@ -lm
+	@$(CC) $(CFLAGS) $^ $(INCLUDES) $(LIBS) -o $@ $(LIB)
 	@echo -e "flags  : $(YLW)$(CFLAGS)$(NC)\nbuild  : $(GRN)$^$(NC)\n=> $(BLU)$@$(NC)"
 
 $(LIBFT):
