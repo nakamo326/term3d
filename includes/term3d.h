@@ -7,8 +7,8 @@
 #include <fcntl.h>
 #include <errno.h>
 #include <string.h>
-#include<math.h>
-#include "libft.h"
+#include <math.h>
+#include "minilibft.h"
 
 #define X_INDEX 0
 #define Y_INDEX 1
@@ -40,4 +40,5 @@ t_point *convert_to_point(const char* str, t_point *prev);
 void free_point_list(t_point **list);
 
 void draw_object(t_point *point_list, char **canvas);
+
 #endif
