@@ -6,7 +6,7 @@ CFLAGS := -Wall -Wextra -Werror -MMD -MP
 INCLUDES := -I./includes -I./libft
 
 SRCDIR := srcs
-SRCFILE := srcs/input.c srcs/main.c srcs/canvas.c srcs/convert_to_point.c 
+SRCFILE := srcs/input.c srcs/main.c srcs/canvas.c srcs/draw.c srcs/convert_to_point.c 
 OBJDIR := objs
 OBJS = $(patsubst $(SRCDIR)%,$(OBJDIR)%,$(SRCFILE:.c=.o))
 DEPS = $(patsubst $(SRCDIR)%,$(OBJDIR)%,$(SRCFILE:.c=.d))
@@ -23,7 +23,7 @@ all: $(NAME)
 -include $(DEPS)
 
 $(NAME): $(OBJS) $(LIBFT)
-	@$(CC) $(CFLAGS) $^ $(INCLUDES) $(LIBS) -o $@
+	@$(CC) $(CFLAGS) $^ $(INCLUDES) $(LIBS) -o $@ -lm
 	@echo -e "flags  : $(YLW)$(CFLAGS)$(NC)\nbuild  : $(GRN)$^$(NC)\n=> $(BLU)$@$(NC)"
 
 $(LIBFT):

@@ -5,16 +5,20 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <fcntl.h>
-#include "libft.h"
-#include "errno.h"
+#include <errno.h>
 #include <string.h>
+#include<math.h>
+#include "libft.h"
 
 #define X_INDEX 0
 #define Y_INDEX 1
 #define Z_INDEX 2
 
-#define CANVAS_X_SIZE 60
-#define CANVAS_Y_SIZE 30
+#define CANVAS_X_SIZE 150
+#define CANVAS_Y_SIZE 100
+
+#define DIM_X_SIZE 7
+#define DIM_Y_SIZE 7
 
 typedef struct s_point t_point; 
 
@@ -35,4 +39,5 @@ void print_canvas(char **canvas);
 t_point *convert_to_point(const char* str, t_point *prev);
 void free_point_list(t_point **list);
 
+void draw_object(t_point *point_list, char **canvas);
 #endif

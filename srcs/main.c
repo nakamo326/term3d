@@ -10,6 +10,7 @@ int main(int argc, char **argv) {
 	canvas = NULL;
 	parse_arguments(argv[1], &list);
 	canvas = allocate_canvas();
+	draw_object(list, canvas);
 	print_canvas(canvas);
 	free_point_list(&list);
 	free_canvas(&canvas);
