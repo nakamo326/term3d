@@ -15,7 +15,7 @@ DEPS = $(patsubst $(SRCDIR)%,$(OBJDIR)%,$(SRCFILE:.c=.d))
 LIBFTDIR := libft
 LIBFT := $(LIBFTDIR)/libft.a
 
-LIB := -lm
+LIBS := -lm
 
 # ==== Align length to format compile message ==== #
 ALIGN := $(shell tr ' ' '\n' <<<"$(SRCFILE)" | while read line; do echo \
@@ -25,7 +25,7 @@ all: $(NAME)
 -include $(DEPS)
 
 $(NAME): $(OBJS) $(LIBFT)
-	@$(CC) $(CFLAGS) $^ $(INCLUDES) $(LIBS) -o $@ $(LIB)
+	@$(CC) $(CFLAGS) $^ $(INCLUDES) $(LIBS) -o $@
 	@echo -e "flags  : $(YLW)$(CFLAGS)$(NC)\nbuild  : $(GRN)$^$(NC)\n=> $(BLU)$@$(NC)"
 
 $(LIBFT):
