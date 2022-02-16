@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_safe_free.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: totaisei <totaisei@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/08 22:11:19 by totaisei          #+#    #+#             */
-/*   Updated: 2022/02/15 20:09:01 by totaisei         ###   ########.fr       */
+/*   Created: 2020/12/18 18:58:20 by totaisei          #+#    #+#             */
+/*   Updated: 2022/02/16 00:22:20 by totaisei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "minilibft.h"
 
-int	ft_isalnum(int c)
+void	ft_safe_free_char(char **target)
 {
-	if (('0' <= c && c <= '9')
-		|| ('A' <= c && c <= 'Z')
-		|| ('a' <= c && c <= 'z'))
-		return (1);
-	return (0);
+	free(*target);
+	*target = NULL;
+}
+
+void	ft_safe_free_split(char ***target)
+{
+	size_t	index;
+
+	index = 0;
+	if (!*target)
+		return ;
+	while ((*target)[index])
+	{
+		free((*target)[index]);
+		(*target)[index] = NULL;
+		index++;
+	}
+	free(*target);
+	*target = NULL;
 }

@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_through.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: totaisei <totaisei@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/04 13:15:36 by totaisei          #+#    #+#             */
-/*   Updated: 2021/01/04 14:19:48 by totaisei         ###   ########.fr       */
+/*   Created: 2020/10/10 00:20:26 by totaisei          #+#    #+#             */
+/*   Updated: 2022/02/16 00:25:03 by totaisei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "minilibft.h"
 
-char	*ft_through_space(char *str)
+char	*ft_strdup(const char *s1)
 {
-	if (!str)
-		return (NULL);
-	while (*str && *str == ' ')
-		str++;
-	return (str);
-}
+	char	*result;
+	int		i;
 
-char	*ft_through_digit(char *str)
-{
-	if (!str)
+	i = 0;
+	while (s1[i])
+		i++;
+	i++;
+	result = (char *)malloc(sizeof(char) * i);
+	if (result == NULL)
 		return (NULL);
-	while (*str && ft_isdigit(*str))
-		str++;
-	return (str);
+	i = 0;
+	while (s1[i])
+	{
+		result[i] = s1[i];
+		i++;
+	}
+	result[i] = '\0';
+	return (result);
 }

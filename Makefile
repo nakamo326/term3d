@@ -3,17 +3,13 @@ NAME := term3d
 SHELL := /bin/bash
 CC := gcc
 CFLAGS := -Wall -Wextra -Werror -MMD -MP
-INCLUDES := -I./includes -I./libft
+INCLUDES := -I./includes -I./minilibft
 
 SRCDIR := srcs
-SRCFILE := srcs/input.c srcs/main.c srcs/canvas.c srcs/draw.c srcs/convert_to_point.c
+SRCFILE := srcs/draw.c srcs/fix_center.c srcs/convert_to_point.c srcs/canvas.c srcs/rotate_object.c srcs/libft_funcs/ft_get_next_line.c srcs/libft_funcs/ft_split.c srcs/libft_funcs/ft_strdup.c srcs/libft_funcs/ft_strlen.c srcs/libft_funcs/ft_safe_free.c srcs/libft_funcs/ft_find_new_line.c srcs/libft_funcs/ft_strjoin.c srcs/input.c srcs/main.c 
 OBJDIR := objs
 OBJS = $(patsubst $(SRCDIR)%,$(OBJDIR)%,$(SRCFILE:.c=.o))
 DEPS = $(patsubst $(SRCDIR)%,$(OBJDIR)%,$(SRCFILE:.c=.d))
-
-
-LIBFTDIR := libft
-LIBFT := $(LIBFTDIR)/libft.a
 
 LIBS := -lm
 
@@ -24,12 +20,9 @@ ALIGN := $(shell tr ' ' '\n' <<<"$(SRCFILE)" | while read line; do echo \
 all: $(NAME)
 -include $(DEPS)
 
-$(NAME): $(OBJS) $(LIBFT)
+$(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) $^ $(INCLUDES) $(LIBS) -o $@
 	@echo -e "flags  : $(YLW)$(CFLAGS)$(NC)\nbuild  : $(GRN)$^$(NC)\n=> $(BLU)$@$(NC)"
-
-$(LIBFT):
-	$(MAKE) -C $(LIBFTDIR)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(OBJDIR)/$(*D)
@@ -46,7 +39,6 @@ clean:
 	$(RM) -r $(OBJDIR)
 
 fclean: clean
-	$(MAKE) fclean -C $(LIBFTDIR)
 	$(RM) $(NAME)
 
 re: fclean

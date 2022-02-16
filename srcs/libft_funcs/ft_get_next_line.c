@@ -6,11 +6,11 @@
 /*   By: totaisei <totaisei@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 14:15:53 by totaisei          #+#    #+#             */
-/*   Updated: 2022/02/15 19:56:09 by totaisei         ###   ########.fr       */
+/*   Updated: 2022/02/16 00:19:44 by totaisei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "minilibft.h"
 
 static int	free_all(char *storage, char *buf, char *line)
 {

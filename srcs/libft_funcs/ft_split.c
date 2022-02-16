@@ -6,11 +6,12 @@
 /*   By: totaisei <totaisei@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 16:48:37 by totaisei          #+#    #+#             */
-/*   Updated: 2022/02/15 20:04:48 by totaisei         ###   ########.fr       */
+/*   Updated: 2022/02/16 00:23:15 by totaisei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "minilibft.h"
+
 
 static void	remove_c(char *src, char c, size_t len)
 {

@@ -13,7 +13,7 @@ int calc_pos_in_canvas(double pos, int dim_size, int canvas_size)
 
 bool is_drawable_point(int pos, int canvas_size)
 {
-	if (pos >= 0 && pos <= canvas_size)
+	if (pos >= 0 && pos < canvas_size)
 	{
 		return (true);
 	}

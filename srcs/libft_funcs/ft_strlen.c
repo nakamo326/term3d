@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: totaisei <totaisei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: totaisei <totaisei@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/11 18:29:22 by totaisei          #+#    #+#             */
-/*   Updated: 2020/10/12 15:18:17 by totaisei         ###   ########.fr       */
+/*   Created: 2020/10/08 21:49:37 by totaisei          #+#    #+#             */
+/*   Updated: 2022/02/16 00:23:04 by totaisei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "minilibft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+size_t	ft_strlen(const char *s)
 {
-	if (!lst)
-		return ;
-	if (lst->content && del)
-	{
-		del(lst->content);
-		lst->content = NULL;
-		lst->next = NULL;
-	}
-	free(lst);
-	lst = NULL;
+	size_t	i;
+
+	if (!s)
+		return (0);
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }

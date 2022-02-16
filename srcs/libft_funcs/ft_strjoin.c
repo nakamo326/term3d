@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: totaisei <totaisei@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/08 21:48:41 by totaisei          #+#    #+#             */
-/*   Updated: 2020/10/08 21:48:44 by totaisei         ###   ########.fr       */
+/*   Created: 2020/10/10 13:20:48 by totaisei          #+#    #+#             */
+/*   Updated: 2022/02/16 00:23:11 by totaisei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "minilibft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t			i;
-	unsigned char	*casted_s1;
-	unsigned char	*casted_s2;
+	char	*result;
+	int		i;
+	size_t	len;
 
-	casted_s1 = (unsigned char *)s1;
-	casted_s2 = (unsigned char *)s2;
+	len = 1;
 	i = 0;
-	while (i < n)
-	{
-		if (casted_s1[i] == casted_s2[i])
-			i++;
-		else
-			return (casted_s1[i] - casted_s2[i]);
-	}
-	return (0);
+	len += ft_strlen(s1);
+	len += ft_strlen(s2);
+	result = malloc(sizeof(char) * len);
+	if (!result)
+		return (NULL);
+	while (s1 && *s1)
+		result[i++] = *s1++;
+	while (s2 && *s2)
+		result[i++] = *s2++;
+	result[i] = '\0';
+	return (result);
 }
