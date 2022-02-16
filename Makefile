@@ -3,15 +3,19 @@ NAME := term3d
 SHELL := /bin/bash
 CC := gcc
 CFLAGS := -Wall -Wextra -Werror -MMD -MP
-INCLUDES := -I./includes
-LIBS := -lpthread
-
+INCLUDES := -I./includes -I./libft
 
 SRCDIR := srcs
+SRCFILE := srcs/input.c srcs/main.c srcs/canvas.c srcs/draw.c srcs/convert_to_point.c
 OBJDIR := objs
-SRCFILE := $(shell find $(SRCDIR) -name "*.c" -type f)
 OBJS = $(patsubst $(SRCDIR)%,$(OBJDIR)%,$(SRCFILE:.c=.o))
 DEPS = $(patsubst $(SRCDIR)%,$(OBJDIR)%,$(SRCFILE:.c=.d))
+
+
+LIBFTDIR := libft
+LIBFT := $(LIBFTDIR)/libft.a
+
+LIBS := -lm
 
 # ==== Align length to format compile message ==== #
 ALIGN := $(shell tr ' ' '\n' <<<"$(SRCFILE)" | while read line; do echo \
@@ -20,9 +24,12 @@ ALIGN := $(shell tr ' ' '\n' <<<"$(SRCFILE)" | while read line; do echo \
 all: $(NAME)
 -include $(DEPS)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(LIBFT)
 	@$(CC) $(CFLAGS) $^ $(INCLUDES) $(LIBS) -o $@
-	@echo -e "flags  : $(YLW)$(CFLAGS)$(NC)\nbuild  : $(GRN)$^$(NC)\n=> $(BLU)$@$(NC)" 
+	@echo -e "flags  : $(YLW)$(CFLAGS)$(NC)\nbuild  : $(GRN)$^$(NC)\n=> $(BLU)$@$(NC)"
+
+$(LIBFT):
+	$(MAKE) -C $(LIBFTDIR)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(OBJDIR)/$(*D)
@@ -39,12 +46,16 @@ clean:
 	$(RM) -r $(OBJDIR)
 
 fclean: clean
+	$(MAKE) fclean -C $(LIBFTDIR)
 	$(RM) $(NAME)
 
 re: fclean
 	$(MAKE) all
 
-.PHONY: all clean fclean re debug
+srcs:
+	sed -i -e "s|^SRCFILE :=.*|SRCFILE := `find $(SRCDIR) -name "*.c"  | tr '\n' ' '`|g" ./Makefile
+
+.PHONY: all clean fclean re debug srcs
 
 # ==== Color define ==== #
 YLW := \033[33m
