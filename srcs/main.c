@@ -1,5 +1,21 @@
 #include "term3d.h"
 
+void rotate_loop_tmp(t_point *list, char **canvas) {
+	while (1) {
+		// char c;
+		// c = getchar();
+		// if (c == 'q')
+		// 	break;
+		usleep(100000);
+		printf("\033[2J");
+		printf("\033[%d;%dH" ,1, 1);
+		init_canvas(canvas);
+		rotate_object(list);
+		draw_object(list, canvas);
+		print_canvas(canvas);
+	}
+}
+
 int main(int argc, char **argv) {
 	t_point *list;
 	char **canvas;
@@ -10,8 +26,9 @@ int main(int argc, char **argv) {
 	canvas = NULL;
 	parse_arguments(argv[1], &list);
 	canvas = allocate_canvas();
-	draw_object(list, canvas);
-	print_canvas(canvas);
+	// draw_object(list, canvas);
+	// print_canvas(canvas);
+	rotate_loop_tmp(list, canvas);
 	free_point_list(&list);
 	free_canvas(&canvas);
 	canvas = NULL;

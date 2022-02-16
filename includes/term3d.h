@@ -14,11 +14,13 @@
 #define Y_INDEX 1
 #define Z_INDEX 2
 
-#define CANVAS_X_SIZE 150
-#define CANVAS_Y_SIZE 100
+#define CANVAS_X_SIZE 80
+#define CANVAS_Y_SIZE 40
 
 #define DIM_X_SIZE 7
 #define DIM_Y_SIZE 7
+
+# define M_PI 3.14159265358979323846
 
 typedef struct s_point t_point; 
 
@@ -40,5 +42,9 @@ t_point *convert_to_point(const char* str, t_point *prev);
 void free_point_list(t_point **list);
 
 void draw_object(t_point *point_list, char **canvas);
+
+
+void rotate_object(t_point *list);
+void rotate_point(t_point *point, double angle);
 
 #endif
