@@ -9,7 +9,7 @@ double convert_to_double(const char* str)
 	errno = 0;
 	res = strtod(str, &end_ptr);
 	if (errno == ERANGE || *end_ptr || isnan(res) || isinf(res))
-		exit(EXIT_FAILURE); //error
+		error_exit("ERROR: Convert to Double Fail");
 	return (res);
 }
 
@@ -25,13 +25,13 @@ bool is_valid_format(char** strs)
 		while (strs[p_index][c_index])
 		{
 			if (strchr("1234567890+-.", strs[p_index][c_index]) == NULL)
-				exit(EXIT_FAILURE); //error
+					error_exit("ERROR: Invalid Format.");
 			c_index++;
 		}
 		p_index++;
 	}
 	if (p_index != 3)
-		exit(EXIT_FAILURE); //error
+		error_exit("ERROR: Invalid Format.");
 	return (true);
 }
 
@@ -46,7 +46,7 @@ t_point *convert_to_point(const char* str, t_point *prev)
 	split_str = ft_split(str, ',');
 	res = malloc(sizeof(t_point));
 	if(!res || !split_str || !is_valid_format(split_str))
-		exit(EXIT_FAILURE); //error
+			error_exit("ERROR: Convert to Point Fail.");
 	res->x_pos = convert_to_double(split_str[X_INDEX]);
 	res->y_pos = convert_to_double(split_str[Y_INDEX]);
 	res->z_pos = convert_to_double(split_str[Z_INDEX]);
