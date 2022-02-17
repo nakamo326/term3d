@@ -39,6 +39,9 @@ void	rotate_object(t_point *list, char control)
 
 	fp[0] = rotate_point_x_axis;
 	fp[1] = rotate_point_y_axis;
+	if (!(control == 'w' || control == 'a' || \
+		control == 's' || control == 'd'))
+		return ;
 	if (control == 'a' || control == 'd')
 		axis = 1;
 	else
