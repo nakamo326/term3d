@@ -3,7 +3,9 @@
 void	rotate_loop_tmp(t_point *list, char **canvas)
 {
 	char	c;
+	bool	rotate_flag;
 
+	rotate_flag = true;
 	printf("\033[2J");
 	while (1)
 	{
@@ -12,8 +14,11 @@ void	rotate_loop_tmp(t_point *list, char **canvas)
 			break ;
 		usleep(60000);
 		printf("\033[%d;%dH", 1, 1);
+		if (c == ' ')
+			rotate_flag = !rotate_flag;
 		init_canvas(canvas);
-		rotate_object(list, c);
+		if (rotate_flag)
+			rotate_object(list, c);
 		if (c == 'r')
 			zoom_out(list);
 		if (c == 'f')
