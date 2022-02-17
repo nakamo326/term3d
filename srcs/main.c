@@ -14,6 +14,10 @@ void	rotate_loop_tmp(t_point *list, char **canvas)
 		printf("\033[%d;%dH", 1, 1);
 		init_canvas(canvas);
 		rotate_object(list, c);
+		if (c == 'r')
+			zoom_out(list);
+		if (c == 'f')
+			zoom_in(list);
 		draw_object(list, canvas);
 		print_canvas(canvas);
 	}

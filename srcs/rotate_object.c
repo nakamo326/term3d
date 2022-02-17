@@ -50,7 +50,7 @@ void	rotate_object(t_point *list, char control)
 	point = list;
 	while (point)
 	{
-		fp[axis](point, angle);
+		fp[axis](point, 2 * angle);
 		point = point->next;
 	}
 }
