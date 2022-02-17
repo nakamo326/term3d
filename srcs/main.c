@@ -1,15 +1,17 @@
 #include "term3d.h"
 
-void rotate_loop_tmp(t_point *list, char **canvas) {
-	char c;
+void	rotate_loop_tmp(t_point *list, char **canvas)
+{
+	char	c;
 
 	printf("\033[2J");
-	while (1) {
+	while (1)
+	{
 		c = get_control_char();
 		if (c == 'q')
-			break;
+			break ;
 		usleep(60000);
-		printf("\033[%d;%dH" ,1, 1);
+		printf("\033[%d;%dH", 1, 1);
 		init_canvas(canvas);
 		rotate_object(list, c);
 		draw_object(list, canvas);
@@ -17,9 +19,10 @@ void rotate_loop_tmp(t_point *list, char **canvas) {
 	}
 }
 
-int main(int argc, char **argv) {
-	t_point *list;
-	char **canvas;
+int	main(int argc, char **argv)
+{
+	t_point	*list;
+	char	**canvas;
 
 	if (argc != 2)
 		return (1);

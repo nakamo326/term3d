@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: totaisei <totaisei@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: ynakamot <ynakamot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 16:48:37 by totaisei          #+#    #+#             */
-/*   Updated: 2022/02/16 00:23:15 by totaisei         ###   ########.fr       */
+/*   Updated: 2022/02/17 12:07:28 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minilibft.h"
-
 
 static void	remove_c(char *src, char c, size_t len)
 {

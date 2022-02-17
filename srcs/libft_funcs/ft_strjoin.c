@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: totaisei <totaisei@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: ynakamot <ynakamot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 13:20:48 by totaisei          #+#    #+#             */
-/*   Updated: 2022/02/16 00:23:11 by totaisei         ###   ########.fr       */
+/*   Updated: 2022/02/17 12:07:15 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minilibft.h"
-
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
