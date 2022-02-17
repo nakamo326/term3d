@@ -49,6 +49,7 @@ void rotate_point(t_point *point, double angle);
 
 void fix_center(t_point *list);
 
+char get_control_char();
 bool	set_terminal_setting(void);
 bool	reset_terminal_setting(void);
 

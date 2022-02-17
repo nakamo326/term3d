@@ -4,10 +4,8 @@ void rotate_loop_tmp(t_point *list, char **canvas) {
 	char c;
 
 	printf("\033[2J");
-	set_terminal_setting();
-	fcntl(0,F_SETFL,O_NONBLOCK);
 	while (1) {
-		c = getchar();
+		c = get_control_char();
 		if (c == 'q')
 			break;
 		usleep(60000);
@@ -17,7 +15,6 @@ void rotate_loop_tmp(t_point *list, char **canvas) {
 		draw_object(list, canvas);
 		print_canvas(canvas);
 	}
-	reset_terminal_setting();
 }
 
 int main(int argc, char **argv) {
