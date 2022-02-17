@@ -6,7 +6,7 @@ CFLAGS := -Wall -Wextra -Werror -MMD -MP
 INCLUDES := -I./includes -I./minilibft
 
 SRCDIR := srcs
-SRCFILE := srcs/draw.c srcs/fix_center.c srcs/convert_to_point.c srcs/canvas.c srcs/rotate_object.c srcs/libft_funcs/ft_get_next_line.c srcs/libft_funcs/ft_split.c srcs/libft_funcs/ft_strdup.c srcs/libft_funcs/ft_strlen.c srcs/libft_funcs/ft_safe_free.c srcs/libft_funcs/ft_find_new_line.c srcs/libft_funcs/ft_strjoin.c srcs/input.c srcs/main.c 
+SRCFILE := srcs/draw.c srcs/fix_center.c srcs/terminal_setting.c srcs/convert_to_point.c srcs/canvas.c srcs/rotate_object.c srcs/libft_funcs/ft_get_next_line.c srcs/libft_funcs/ft_split.c srcs/libft_funcs/ft_strdup.c srcs/libft_funcs/ft_strlen.c srcs/libft_funcs/ft_safe_free.c srcs/libft_funcs/ft_find_new_line.c srcs/libft_funcs/ft_strjoin.c srcs/input.c srcs/main.c 
 OBJDIR := objs
 OBJS = $(patsubst $(SRCDIR)%,$(OBJDIR)%,$(SRCFILE:.c=.o))
 DEPS = $(patsubst $(SRCDIR)%,$(OBJDIR)%,$(SRCFILE:.c=.d))
