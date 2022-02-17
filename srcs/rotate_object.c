@@ -39,16 +39,13 @@ void	rotate_object(t_point *list, char control)
 
 	fp[0] = rotate_point_x_axis;
 	fp[1] = rotate_point_y_axis;
-	if (!(control == 'w' || control == 'a' || \
-		control == 's' || control == 'd'))
-		return ;
 	if (control == 'a' || control == 'd')
 		axis = 1;
-	else
+	else if (control == 'w' || control == 's')
 		axis = 0;
 	if (control == 'w' || control == 'd')
 		angle = M_PI / 180;
-	else
+	else if (control == 'a' || control == 's')
 		angle = -M_PI / 180;
 	point = list;
 	while (point)
