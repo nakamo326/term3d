@@ -44,9 +44,12 @@ void free_point_list(t_point **list);
 void draw_object(t_point *point_list, char **canvas);
 
 
-void rotate_object(t_point *list);
+void rotate_object(t_point *list, char control);
 void rotate_point(t_point *point, double angle);
 
 void fix_center(t_point *list);
+
+bool	set_terminal_setting(void);
+bool	reset_terminal_setting(void);
 
 #endif
