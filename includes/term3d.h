@@ -55,4 +55,7 @@ char	get_control_char(void);
 bool	set_terminal_setting(void);
 bool	reset_terminal_setting(void);
 
+void	zoom_in(t_point *list);
+void	zoom_out(t_point *list);
+
 #endif
