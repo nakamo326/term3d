@@ -1,9 +1,9 @@
 #include "term3d.h"
 
-double convert_to_double(const char* str)
+double	convert_to_double(const char *str)
 {
-	double res;
-	char *end_ptr;
+	double	res;
+	char	*end_ptr;
 
 	end_ptr = NULL;
 	errno = 0;
@@ -13,10 +13,10 @@ double convert_to_double(const char* str)
 	return (res);
 }
 
-bool is_valid_format(char** strs)
+bool	is_valid_format(char **strs)
 {
-	size_t p_index;
-	size_t c_index;
+	size_t	p_index;
+	size_t	c_index;
 
 	p_index = 0;
 	while (strs[p_index])
@@ -25,7 +25,7 @@ bool is_valid_format(char** strs)
 		while (strs[p_index][c_index])
 		{
 			if (strchr("1234567890+-.", strs[p_index][c_index]) == NULL)
-					error_exit("ERROR: Invalid Format.");
+				error_exit("ERROR: Invalid Format.");
 			c_index++;
 		}
 		p_index++;
@@ -35,18 +35,17 @@ bool is_valid_format(char** strs)
 	return (true);
 }
 
-
-t_point *convert_to_point(const char* str, t_point *prev)
+t_point	*convert_to_point(const char *str, t_point *prev)
 {
-	t_point *res;
-	char **split_str;
+	t_point	*res;
+	char	**split_str;
 
 	if (strlen(str) == 0)
 		return (prev);
 	split_str = ft_split(str, ',');
 	res = malloc(sizeof(t_point));
-	if(!res || !split_str || !is_valid_format(split_str))
-			error_exit("ERROR: Convert to Point Fail.");
+	if (!res || !split_str || !is_valid_format(split_str))
+		error_exit("ERROR: Convert to Point Fail.");
 	res->x_pos = convert_to_double(split_str[X_INDEX]);
 	res->y_pos = convert_to_double(split_str[Y_INDEX]);
 	res->z_pos = convert_to_double(split_str[Z_INDEX]);
@@ -57,10 +56,10 @@ t_point *convert_to_point(const char* str, t_point *prev)
 	return (res);
 }
 
-void free_point_list(t_point **list)
+void	free_point_list(t_point **list)
 {
-	t_point *now;
-	t_point *tmp;
+	t_point	*now;
+	t_point	*tmp;
 
 	now = *list;
 	while (now)
