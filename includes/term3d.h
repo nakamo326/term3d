@@ -8,6 +8,7 @@
 # include <errno.h>
 # include <string.h>
 # include <math.h>
+#include <termios.h>
 # include "minilibft.h"
 
 # define X_INDEX 0

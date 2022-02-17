@@ -1,8 +1,5 @@
 #include "term3d.h"
 
-#include <termios.h>
-
-
 bool	set_terminal_setting(void)
 {
 	struct termios	termios_p;
@@ -41,9 +38,10 @@ bool	reset_terminal_setting(void)
 	return (true);
 }
 
-char get_control_char() {
-	char ret;
-	int old_flag;
+char	get_control_char(void)
+{
+	char	ret;
+	int		old_flag;
 
 	ret = 0;
 	old_flag = fcntl(STDIN_FILENO, F_GETFL);
@@ -52,5 +50,5 @@ char get_control_char() {
 	ret = getchar();
 	reset_terminal_setting();
 	fcntl(STDIN_FILENO, F_SETFL, old_flag);
-	return ret;
+	return (ret);
 }
