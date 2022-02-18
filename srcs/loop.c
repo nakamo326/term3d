@@ -1,9 +1,9 @@
 #include "term3d.h"
 
-void	print_help()
+void	print_help(void)
 {
-	printf("WASD: rotate object   HJKL: rotate camera" 
-	"   space: toggle object rotating\n");
+	printf("WASD: rotate object   HJKL: rotate camera"
+		"   space: toggle object rotating\n");
 }
 
 void	loop(t_point *list, char **canvas)

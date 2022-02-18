@@ -32,13 +32,12 @@ void	rotate_point_z_axis(t_point *point, double angle)
 
 void	rotate_points(int axis, t_point *list, double angle)
 {
-	t_point *point;
-	void (*const rotate_fp[3])(t_point*, double) = {
-		rotate_point_x_axis,
-		rotate_point_y_axis,
-		rotate_point_z_axis
-	};
+	t_point	*point;
+	void	(*rotate_fp[3])(t_point*, double);
 
+	rotate_fp[0] = rotate_point_x_axis;
+	rotate_fp[1] = rotate_point_y_axis;
+	rotate_fp[2] = rotate_point_z_axis;
 	point = list;
 	while (point)
 	{

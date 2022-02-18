@@ -18,16 +18,23 @@ void	rotate_object(t_point *list, char control)
 
 void	rotate_camera(t_point *list, char control)
 {
-	double angle;
+	double	angle;
 
 	angle = M_PI / 180 * 5;
-	if (control == 'h') {
+	if (control == 'h')
+	{
 		rotate_points(Y_INDEX, list, angle);
-	} else if (control == 'j') {
+	}
+	else if (control == 'j')
+	{
 		rotate_points(X_INDEX, list, -angle);
-	} else if (control == 'k') {
+	}
+	else if (control == 'k')
+	{
 		rotate_points(X_INDEX, list, angle);
-	} else if (control == 'l') {
+	}
+	else if (control == 'l')
+	{
 		rotate_points(Y_INDEX, list, -angle);
 	}
 }
