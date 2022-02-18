@@ -1,5 +1,11 @@
 #include "term3d.h"
 
+void	print_help()
+{
+	printf("WASD: rotate object   HJKL: rotate camera" 
+	"   space: toggle object rotating\n");
+}
+
 void	loop(t_point *list, char **canvas)
 {
 	char	c;
@@ -12,6 +18,7 @@ void	loop(t_point *list, char **canvas)
 			break ;
 		render_object(list, canvas, c);
 		print_canvas(canvas);
+		print_help();
 		usleep(60000);
 	}
 }

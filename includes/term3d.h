@@ -50,7 +50,8 @@ void	render_object(t_point *list, char **canvas, char c);
 void	draw_object(t_point *point_list, char **canvas);
 
 void	rotate_object(t_point *list, char control);
-void	rotate_point(t_point *point, double angle);
+void	rotate_camera(t_point *list, char control);
+void	rotate_points(int axis, t_point *list, double angle);
 
 void	fix_center(t_point *list);
 

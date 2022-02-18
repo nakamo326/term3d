@@ -30,27 +30,19 @@ void	rotate_point_z_axis(t_point *point, double angle)
 	point->y_pos = tmp.y_pos;
 }
 
-void	rotate_object(t_point *list, char control)
+void	rotate_points(int axis, t_point *list, double angle)
 {
-	t_point			*point;
-	static int		axis = 1;
-	static double	angle = M_PI / 180;
-	void			(*fp[2])(t_point*, double);
+	t_point *point;
+	void (*const rotate_fp[3])(t_point*, double) = {
+		rotate_point_x_axis,
+		rotate_point_y_axis,
+		rotate_point_z_axis
+	};
 
-	fp[0] = rotate_point_x_axis;
-	fp[1] = rotate_point_y_axis;
-	if (control == 'a' || control == 'd')
-		axis = 1;
-	else if (control == 'w' || control == 's')
-		axis = 0;
-	if (control == 'w' || control == 'd')
-		angle = M_PI / 180;
-	else if (control == 'a' || control == 's')
-		angle = -M_PI / 180;
 	point = list;
 	while (point)
 	{
-		fp[axis](point, 2 * angle);
+		rotate_fp[axis](point, angle);
 		point = point->next;
 	}
 }
