@@ -1,54 +1,43 @@
 #include "term3d.h"
 
-bool	set_terminal_setting(void)
+void	set_terminal_setting(void)
 {
 	struct termios	termios_p;
 	int				ret;
 
 	ret = tcgetattr(STDIN_FILENO, &termios_p);
 	if (ret == -1)
-	{
-		return (false);
-	}
+		error_exit("ERROR: Failed to read terminal setting.");
 	termios_p.c_lflag &= ~(ICANON | ECHO);
 	ret = tcsetattr(STDIN_FILENO, TCSANOW, &termios_p);
 	if (ret == -1)
-	{
-		return (false);
-	}
-	return (true);
+		error_exit("ERROR: Failed to set non-canonical mode.");
+	return ;
 }
 
-bool	reset_terminal_setting(void)
+void	reset_terminal_setting(void)
 {
 	struct termios	termios_p;
 	int				ret;
 
 	ret = tcgetattr(STDIN_FILENO, &termios_p);
 	if (ret == -1)
-	{
-		return (false);
-	}
+		error_exit("ERROR: Failed to read terminal setting.");
 	termios_p.c_lflag |= ICANON | ECHO;
 	ret = tcsetattr(STDIN_FILENO, TCSANOW, &termios_p);
 	if (ret == -1)
-	{
-		return (false);
-	}
-	return (true);
+		error_exit("ERROR: Failed to set canonical mode.");
+	return ;
 }
 
 char	get_control_char(void)
 {
-	char	ret;
+	char	buf[10];
 	int		old_flag;
 
-	ret = 0;
 	old_flag = fcntl(STDIN_FILENO, F_GETFL);
 	fcntl(STDIN_FILENO, F_SETFL, old_flag | O_NONBLOCK);
-	set_terminal_setting();
-	ret = getchar();
-	reset_terminal_setting();
+	read(STDIN_FILENO, buf, 10);
 	fcntl(STDIN_FILENO, F_SETFL, old_flag);
-	return (ret);
+	return (buf[0]);
 }
