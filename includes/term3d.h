@@ -8,7 +8,7 @@
 # include <errno.h>
 # include <string.h>
 # include <math.h>
-#include <termios.h>
+# include <termios.h>
 # include "minilibft.h"
 
 # define X_INDEX 0
@@ -57,5 +57,7 @@ bool	reset_terminal_setting(void);
 
 void	zoom_in(t_point *list);
 void	zoom_out(t_point *list);
+
+void	error_exit(const char *reason);
 
 #endif

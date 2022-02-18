@@ -28,6 +28,12 @@ void	rotate_loop_tmp(t_point *list, char **canvas)
 	}
 }
 
+void	error_exit(const char *reason)
+{
+	printf("%s\n", reason);
+	exit(EXIT_FAILURE);
+}
+
 int	main(int argc, char **argv)
 {
 	t_point	*list;

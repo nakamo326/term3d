@@ -22,15 +22,17 @@ bool	is_drawable_point(int pos, int canvas_size)
 
 void	draw_point(t_point *point, char **canvas)
 {
-	int	x_pos;
-	int	y_pos;
+	int		x_pos;
+	int		y_pos;
+	char	c;
 
 	x_pos = calc_pos_in_canvas(point->x_pos, DIM_X_SIZE, CANVAS_X_SIZE);
 	y_pos = calc_pos_in_canvas(point->y_pos, DIM_Y_SIZE, CANVAS_Y_SIZE);
 	if (is_drawable_point(x_pos, CANVAS_X_SIZE)
 		&& is_drawable_point(y_pos, CANVAS_Y_SIZE))
 	{
-		canvas[y_pos][x_pos] = '.';
+		c = *(strchr(" .-=+xX##", canvas[y_pos][x_pos]) + 1);
+		canvas[y_pos][x_pos] = c;
 	}
 }
 

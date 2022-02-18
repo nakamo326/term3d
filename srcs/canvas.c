@@ -20,13 +20,13 @@ char	**allocate_canvas(void)
 	index = 0;
 	res = malloc(sizeof(char *) * (CANVAS_Y_SIZE + 1));
 	if (!res)
-		exit(EXIT_FAILURE);
+		error_exit("ERROR: malloc Fail.");
 	res[CANVAS_Y_SIZE] = NULL;
 	while (index < CANVAS_Y_SIZE)
 	{
 		res[index] = malloc(sizeof(char) * CANVAS_X_SIZE + 1);
 		if (!res[index])
-			exit(EXIT_FAILURE);
+			error_exit("ERROR: malloc Fail.");
 		res[index][CANVAS_X_SIZE] = '\0';
 		index++;
 	}
