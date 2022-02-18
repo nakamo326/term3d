@@ -24,7 +24,7 @@ bool	is_valid_format(char **strs)
 		c_index = 0;
 		while (strs[p_index][c_index])
 		{
-			if (strchr("1234567890+-.", strs[p_index][c_index]) == NULL)
+			if (strchr("1234567890+-e.", strs[p_index][c_index]) == NULL)
 				error_exit("ERROR: Invalid Format.");
 			c_index++;
 		}
