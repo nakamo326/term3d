@@ -40,15 +40,14 @@ bool	reset_terminal_setting(void)
 
 char	get_control_char(void)
 {
-	char	ret;
+	char	buf[10];
 	int		old_flag;
 
-	ret = 0;
 	old_flag = fcntl(STDIN_FILENO, F_GETFL);
 	fcntl(STDIN_FILENO, F_SETFL, old_flag | O_NONBLOCK);
 	set_terminal_setting();
-	ret = getchar();
+	read(STDIN_FILENO, buf, 10);
 	reset_terminal_setting();
 	fcntl(STDIN_FILENO, F_SETFL, old_flag);
-	return (ret);
+	return buf[0];
 }
