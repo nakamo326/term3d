@@ -44,6 +44,9 @@ void	print_canvas(char **canvas);
 t_point	*convert_to_point(const char *str, t_point *prev);
 void	free_point_list(t_point **list);
 
+void	loop(t_point *list, char **canvas);
+void	render_object(t_point *list, char **canvas, char c);
+
 void	draw_object(t_point *point_list, char **canvas);
 
 void	rotate_object(t_point *list, char control);
