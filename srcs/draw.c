@@ -1,6 +1,6 @@
 #include "term3d.h"
 
-int	calc_pos_in_canvas(double pos, int dim_size, int canvas_size)
+int	calc_pos_in_canvas(double pos, double dim_size, double canvas_size)
 {
 	double	dimension_pos;
 	double	canvas_pos;
