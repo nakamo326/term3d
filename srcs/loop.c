@@ -2,8 +2,10 @@
 
 void	print_help(void)
 {
-	printf("WASD: rotate object   HJKL: rotate camera"
-		"   space: toggle object rotating\n");
+	puts("\033[0J");
+	puts("WASD: rotate object   HJKL: rotate camera"
+		"   space: toggle object rotating\n"
+		"R: zoom out   F: zoom in   Q: quit");
 }
 
 void	loop(t_point *list, char **canvas)
