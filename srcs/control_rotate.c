@@ -27,11 +27,11 @@ void	rotate_camera(t_point *list, char control)
 	}
 	else if (control == 'j')
 	{
-		rotate_points(X_INDEX, list, -angle);
+		rotate_points(X_INDEX, list, angle);
 	}
 	else if (control == 'k')
 	{
-		rotate_points(X_INDEX, list, angle);
+		rotate_points(X_INDEX, list, -angle);
 	}
 	else if (control == 'l')
 	{
