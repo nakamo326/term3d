@@ -45,9 +45,7 @@ char	get_control_char(void)
 
 	old_flag = fcntl(STDIN_FILENO, F_GETFL);
 	fcntl(STDIN_FILENO, F_SETFL, old_flag | O_NONBLOCK);
-	set_terminal_setting();
 	read(STDIN_FILENO, buf, 10);
-	reset_terminal_setting();
 	fcntl(STDIN_FILENO, F_SETFL, old_flag);
 	return (buf[0]);
 }

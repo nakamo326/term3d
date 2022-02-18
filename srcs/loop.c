@@ -13,6 +13,7 @@ void	loop(t_point *list, char **canvas)
 	char	c;
 
 	puts("\033[2J");
+	set_terminal_setting();
 	while (1)
 	{
 		c = get_control_char();
@@ -23,4 +24,5 @@ void	loop(t_point *list, char **canvas)
 		print_help();
 		usleep(60000);
 	}
+	reset_terminal_setting();
 }
