@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ynakamot  <ynakamot@student.42tokyo.j      +#+  +:+       +#+        */
+/*   By: ynakamot <ynakamot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 19:28:03 by ynakamot          #+#    #+#             */
-/*   Updated: 2022/02/19 11:18:06 by ynakamot         ###   ########.fr       */
+/*   Updated: 2022/02/20 01:13:30 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	main(int argc, char **argv)
 	list = NULL;
 	canvas = NULL;
 	parse_arguments(argv[1], &list);
+	if (!list)
+		return (0);
 	canvas = allocate_canvas();
 	fix_center(list);
 	loop(list, canvas);
