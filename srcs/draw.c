@@ -11,13 +11,12 @@ int	calc_pos_in_canvas(double pos, double dim_size, double canvas_size)
 	return ((int)canvas_pos);
 }
 
-bool	is_drawable_point(int pos, int canvas_size)
+bool	is_drawable_point(int x_pos, int y_pos)
 {
-	if (pos >= 0 && pos < canvas_size)
-	{
-		return (true);
-	}
-	return (false);
+	const bool	is_x_in_screen = x_pos >= 0 && x_pos < CANVAS_X_SIZE;
+	const bool	is_y_in_screen = y_pos >= 0 && y_pos < CANVAS_Y_SIZE;
+
+	return (is_x_in_screen && is_y_in_screen);
 }
 
 void	draw_point(t_point *point, char **canvas)
@@ -28,8 +27,7 @@ void	draw_point(t_point *point, char **canvas)
 
 	x_pos = calc_pos_in_canvas(point->x_pos, DIM_X_SIZE, CANVAS_X_SIZE);
 	y_pos = calc_pos_in_canvas(point->y_pos, DIM_Y_SIZE, CANVAS_Y_SIZE);
-	if (is_drawable_point(x_pos, CANVAS_X_SIZE)
-		&& is_drawable_point(y_pos, CANVAS_Y_SIZE))
+	if (is_drawable_point(x_pos, y_pos))
 	{
 		c = *(strchr(" .-=+xX##", canvas[y_pos][x_pos]) + 1);
 		canvas[y_pos][x_pos] = c;
