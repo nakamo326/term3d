@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   control_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ynakamot  <ynakamot@student.42tokyo.j      +#+  +:+       +#+        */
+/*   By: ynakamot <ynakamot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 19:28:03 by ynakamot          #+#    #+#             */
-/*   Updated: 2022/02/19 11:16:28 by ynakamot         ###   ########.fr       */
+/*   Updated: 2022/02/19 23:48:12 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,8 @@ void	rotate_object(t_point *list, char control)
 
 void	rotate_camera(t_point *list, char control)
 {
-	double	angle;
+	const double	angle = M_PI / 180 * 5;
 
-	angle = M_PI / 180 * 5;
 	if (control == 'h')
 	{
 		rotate_points(Y_INDEX, list, angle);
