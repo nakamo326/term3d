@@ -6,7 +6,7 @@
 /*   By: ynakamot <ynakamot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 19:28:03 by ynakamot          #+#    #+#             */
-/*   Updated: 2022/02/20 01:46:14 by ynakamot         ###   ########.fr       */
+/*   Updated: 2022/02/20 02:19:07 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ bool	is_camera_control(char c)
 void	render_object(t_point *list, char **canvas, char c)
 {
 	static bool	rotate_flag = true;
+	t_angle rotatation_angle;
 
+	memset(&rotatation_angle, 0, sizeof(t_angle));
 	init_canvas(canvas);
 	puts(RESET_CURSOR);
 	if (c == ' ')
