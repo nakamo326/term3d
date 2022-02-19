@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   term3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ynakamot  <ynakamot@student.42tokyo.j      +#+  +:+       +#+        */
+/*   By: ynakamot <ynakamot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 16:09:03 by ynakamot          #+#    #+#             */
-/*   Updated: 2022/02/19 16:09:03 by ynakamot         ###   ########.fr       */
+/*   Updated: 2022/02/19 23:58:44 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,12 @@ struct s_point {
 	double	z_pos;
 	t_point	*next;
 };
+
+typedef struct s_angle {
+	int	x;
+	int	y;
+	int	z;
+}	t_angle;
 
 void	parse_arguments(char *file_name, t_point **list_start);
 
