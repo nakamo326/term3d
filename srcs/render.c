@@ -3,19 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ynakamot  <ynakamot@student.42tokyo.j      +#+  +:+       +#+        */
+/*   By: ynakamot <ynakamot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 19:28:03 by ynakamot          #+#    #+#             */
-/*   Updated: 2022/02/19 11:16:28 by ynakamot         ###   ########.fr       */
+/*   Updated: 2022/02/20 01:46:14 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "term3d.h"
-
-void	reset_cursor(void)
-{
-	puts("\033[1;1H");
-}
 
 bool	is_camera_control(char c)
 {
@@ -27,7 +22,7 @@ void	render_object(t_point *list, char **canvas, char c)
 	static bool	rotate_flag = true;
 
 	init_canvas(canvas);
-	reset_cursor();
+	puts(RESET_CURSOR);
 	if (c == ' ')
 		rotate_flag = !rotate_flag;
 	if (rotate_flag)
