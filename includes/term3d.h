@@ -47,7 +47,7 @@ void	free_point_list(t_point **list);
 void	loop(t_point *list, char **canvas);
 void	render_object(t_point *list, char **canvas, char c);
 
-void	draw_object(t_point *point_list, char **canvas);
+void	draw_object(t_point *list, char **canvas);
 
 void	rotate_object(t_point *list, char control);
 void	rotate_camera(t_point *list, char control);

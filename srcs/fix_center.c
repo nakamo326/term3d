@@ -2,25 +2,25 @@
 
 t_point	calc_center(t_point *list)
 {
-	t_point	ret;
+	t_point	res;
 	size_t	i;
 	t_point	*point;
 
-	memset(&ret, 0, sizeof(t_point));
+	memset(&res, 0, sizeof(t_point));
 	i = 0;
 	point = list;
 	while (point)
 	{
-		ret.x_pos += point->x_pos;
-		ret.y_pos += point->y_pos;
-		ret.z_pos += point->z_pos;
+		res.x_pos += point->x_pos;
+		res.y_pos += point->y_pos;
+		res.z_pos += point->z_pos;
 		point = point->next;
 		i++;
 	}
-	ret.x_pos /= i;
-	ret.y_pos /= i;
-	ret.z_pos /= i;
-	return (ret);
+	res.x_pos /= i;
+	res.y_pos /= i;
+	res.z_pos /= i;
+	return (res);
 }
 
 void	fix_center(t_point *list)
