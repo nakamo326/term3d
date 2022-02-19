@@ -34,11 +34,11 @@ void	draw_point(t_point *point, char **canvas)
 	}
 }
 
-void	draw_object(t_point *point_list, char **canvas)
+void	draw_object(t_point *list, char **canvas)
 {
 	t_point	*point;
 
-	point = point_list;
+	point = list;
 	while (point)
 	{
 		draw_point(point, canvas);

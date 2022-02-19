@@ -2,7 +2,7 @@
 
 void	zoom_in(t_point *list)
 {
-	t_point			*point;
+	t_point	*point;
 
 	point = list;
 	while (point)
@@ -16,7 +16,7 @@ void	zoom_in(t_point *list)
 
 void	zoom_out(t_point *list)
 {
-	t_point			*point;
+	t_point	*point;
 
 	point = list;
 	while (point)
