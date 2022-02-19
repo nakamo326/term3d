@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_object.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ynakamot  <ynakamot@student.42tokyo.j      +#+  +:+       +#+        */
+/*   By: ynakamot <ynakamot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 19:28:03 by ynakamot          #+#    #+#             */
-/*   Updated: 2022/02/19 11:16:28 by ynakamot         ###   ########.fr       */
+/*   Updated: 2022/02/20 01:39:55 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	rotate_point_z_axis(t_point *point, double angle)
 	point->y_pos = tmp.y_pos;
 }
 
-void	rotate_points(int axis, t_point *list, double angle)
+void	rotate_points(t_index axis, t_point *list, double angle)
 {
 	t_point	*point;
 	void	(*rotate_fp[3])(t_point*, double);

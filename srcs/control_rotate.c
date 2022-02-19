@@ -6,7 +6,7 @@
 /*   By: ynakamot <ynakamot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 19:28:03 by ynakamot          #+#    #+#             */
-/*   Updated: 2022/02/19 23:48:12 by ynakamot         ###   ########.fr       */
+/*   Updated: 2022/02/20 01:38:51 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	rotate_object(t_point *list, char control)
 {
-	static int		axis = Y_INDEX;
+	static t_index	axis = Y_INDEX;
 	static double	angle = M_PI / 180;
 
 	if (control == 'a' || control == 'd')

@@ -6,7 +6,7 @@
 /*   By: ynakamot <ynakamot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 16:09:03 by ynakamot          #+#    #+#             */
-/*   Updated: 2022/02/19 23:58:44 by ynakamot         ###   ########.fr       */
+/*   Updated: 2022/02/20 01:39:26 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,6 @@
 # include <termios.h>
 # include "minilibft.h"
 
-# define X_INDEX 0
-# define Y_INDEX 1
-# define Z_INDEX 2
-
 # define CANVAS_X_SIZE 80
 # define CANVAS_Y_SIZE 40
 
@@ -36,6 +32,12 @@
 # ifndef M_PI
 #  define M_PI 3.14159265358979323846
 # endif
+
+typedef enum e_index {
+	X_INDEX,
+	Y_INDEX,
+	Z_INDEX
+} t_index;
 
 typedef struct s_point	t_point;
 
@@ -69,7 +71,7 @@ void	draw_object(t_point *list, char **canvas);
 
 void	rotate_object(t_point *list, char control);
 void	rotate_camera(t_point *list, char control);
-void	rotate_points(int axis, t_point *list, double angle);
+void	rotate_points(t_index axis, t_point *list, double angle);
 
 void	fix_center(t_point *list);
 
