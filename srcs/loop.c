@@ -6,7 +6,7 @@
 /*   By: ynakamot <ynakamot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 21:03:55 by ynakamot          #+#    #+#             */
-/*   Updated: 2022/02/20 11:50:01 by ynakamot         ###   ########.fr       */
+/*   Updated: 2022/02/20 15:30:20 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	loop(t_point *list, char **canvas)
 	char	c;
 
 	puts(CLEAR_TERMINAL);
+	puts(DISABLE_CURSOR);
 	set_terminal_setting();
 	while (1)
 	{
@@ -37,4 +38,5 @@ void	loop(t_point *list, char **canvas)
 		usleep(60000);
 	}
 	reset_terminal_setting();
+	puts(ENABLE_CURSOR);
 }

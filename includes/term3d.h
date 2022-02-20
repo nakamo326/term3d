@@ -6,7 +6,7 @@
 /*   By: ynakamot <ynakamot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 16:09:03 by ynakamot          #+#    #+#             */
-/*   Updated: 2022/02/20 11:29:06 by ynakamot         ###   ########.fr       */
+/*   Updated: 2022/02/20 14:56:52 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 # define RESET_CURSOR "\033[1;1H"
 # define CLEAR_TERMINAL "\033[2J"
 # define CLEAR_UNDER "\033[0J"
+# define DISABLE_CURSOR "\033[?25l"
+# define ENABLE_CURSOR "\033[?25h"
 
 # define CANVAS_X_SIZE 80
 # define CANVAS_Y_SIZE 40
