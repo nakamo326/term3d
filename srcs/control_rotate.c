@@ -6,7 +6,7 @@
 /*   By: ynakamot <ynakamot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 19:28:03 by ynakamot          #+#    #+#             */
-/*   Updated: 2022/02/20 01:38:51 by ynakamot         ###   ########.fr       */
+/*   Updated: 2022/02/20 11:20:06 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,24 +28,38 @@ void	rotate_object(t_point *list, char control)
 	rotate_points(axis, list, 2 * angle);
 }
 
-void	rotate_camera(t_point *list, char control)
+void	add_angle(t_angle *angle_state, t_index axis, int degree)
 {
-	const double	angle = M_PI / 180 * 5;
+	if (axis == X_INDEX)
+	{
+		angle_state->x = (angle_state->x + degree) % 360;
+	}
+	else if (axis == Y_INDEX)
+	{
+		angle_state->y = (angle_state->y + degree) % 360;
+	}
+	else if (axis == Z_INDEX)
+	{
+		angle_state->z = (angle_state->z + degree) % 360;
+	}
+}
 
+void	rotate_camera(t_angle *camera_state, char control)
+{
 	if (control == 'h')
 	{
-		rotate_points(Y_INDEX, list, angle);
+		add_angle(camera_state, Y_INDEX, 5);
 	}
 	else if (control == 'j')
 	{
-		rotate_points(X_INDEX, list, angle);
+		add_angle(camera_state, X_INDEX, 5);
 	}
 	else if (control == 'k')
 	{
-		rotate_points(X_INDEX, list, -angle);
+		add_angle(camera_state, X_INDEX, -5);
 	}
 	else if (control == 'l')
 	{
-		rotate_points(Y_INDEX, list, -angle);
+		add_angle(camera_state, Y_INDEX, -5);
 	}
 }

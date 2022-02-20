@@ -6,7 +6,7 @@
 /*   By: ynakamot <ynakamot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 16:09:03 by ynakamot          #+#    #+#             */
-/*   Updated: 2022/02/20 01:47:14 by ynakamot         ###   ########.fr       */
+/*   Updated: 2022/02/20 11:29:06 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef enum e_index {
 	X_INDEX,
 	Y_INDEX,
 	Z_INDEX
-} t_index;
+}	t_index;
 
 typedef struct s_point	t_point;
 
@@ -71,11 +71,12 @@ void	free_point_list(t_point **list);
 void	loop(t_point *list, char **canvas);
 void	render_object(t_point *list, char **canvas, char c);
 
-void	draw_object(t_point *list, char **canvas);
+void	draw_object(t_point *list, char **canvas, const t_angle *camera_state);
 
 void	rotate_object(t_point *list, char control);
-void	rotate_camera(t_point *list, char control);
+void	rotate_camera(t_angle *camera_state, char control);
 void	rotate_points(t_index axis, t_point *list, double angle);
+t_point	apply_camera_angle(t_point *point, const t_angle *camera_state);
 
 void	fix_center(t_point *list);
 

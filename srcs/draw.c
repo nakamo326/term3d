@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ynakamot  <ynakamot@student.42tokyo.j      +#+  +:+       +#+        */
+/*   By: ynakamot <ynakamot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 16:09:03 by ynakamot          #+#    #+#             */
-/*   Updated: 2022/02/19 16:09:03 by ynakamot         ###   ########.fr       */
+/*   Updated: 2022/02/20 11:28:30 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ bool	is_drawable_point(int x_pos, int y_pos)
 	return (is_x_in_screen && is_y_in_screen);
 }
 
-void	draw_point(t_point *point, char **canvas)
+void	draw_point(t_point point, char **canvas)
 {
 	int		x_pos;
 	int		y_pos;
 	char	c;
 
-	x_pos = calc_pos_in_canvas(point->x_pos, DIM_X_SIZE, CANVAS_X_SIZE);
-	y_pos = calc_pos_in_canvas(point->y_pos, DIM_Y_SIZE, CANVAS_Y_SIZE);
+	x_pos = calc_pos_in_canvas(point.x_pos, DIM_X_SIZE, CANVAS_X_SIZE);
+	y_pos = calc_pos_in_canvas(point.y_pos, DIM_Y_SIZE, CANVAS_Y_SIZE);
 	if (is_drawable_point(x_pos, y_pos))
 	{
 		c = *(strchr(" .-=+xX##", canvas[y_pos][x_pos]) + 1);
@@ -46,14 +46,14 @@ void	draw_point(t_point *point, char **canvas)
 	}
 }
 
-void	draw_object(t_point *list, char **canvas)
+void	draw_object(t_point *list, char **canvas, const t_angle *camera_state)
 {
 	t_point	*point;
 
 	point = list;
 	while (point)
 	{
-		draw_point(point, canvas);
+		draw_point(apply_camera_angle(point, camera_state), canvas);
 		point = point->next;
 	}
 }
