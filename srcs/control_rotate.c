@@ -6,7 +6,7 @@
 /*   By: ynakamot <ynakamot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 19:28:03 by ynakamot          #+#    #+#             */
-/*   Updated: 2022/02/20 11:20:06 by ynakamot         ###   ########.fr       */
+/*   Updated: 2022/02/20 11:45:33 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,13 @@ void	rotate_camera(t_angle *camera_state, char control)
 	else if (control == 'l')
 	{
 		add_angle(camera_state, Y_INDEX, -5);
+	}
+	else if (control == 'u')
+	{
+		add_angle(camera_state, Z_INDEX, -5);
+	}
+	else if (control == 'i')
+	{
+		add_angle(camera_state, Z_INDEX, 5);
 	}
 }

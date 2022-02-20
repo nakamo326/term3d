@@ -6,7 +6,7 @@
 /*   By: ynakamot <ynakamot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 19:28:03 by ynakamot          #+#    #+#             */
-/*   Updated: 2022/02/20 11:37:53 by ynakamot         ###   ########.fr       */
+/*   Updated: 2022/02/20 11:47:00 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 bool	is_camera_control(char c)
 {
-	return (c == 'h' || c == 'j' || c == 'k' || c == 'l');
+	return (c == 'h' || c == 'j' || c == 'k' || c == 'l'
+		|| c == 'u' || c == 'i');
 }
 
 void	render_object(t_point *list, char **canvas, char c)

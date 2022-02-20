@@ -6,7 +6,7 @@
 /*   By: ynakamot <ynakamot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 21:03:55 by ynakamot          #+#    #+#             */
-/*   Updated: 2022/02/20 01:47:55 by ynakamot         ###   ########.fr       */
+/*   Updated: 2022/02/20 11:50:01 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	print_help(void)
 {
 	puts(CLEAR_UNDER);
-	puts("WASD: rotate object   HJKL: rotate camera"
-		"   space: toggle object rotating\n"
+	puts("WASD: rotate object   space: toggle rotate\n"
+		"HL: camera Y   JK: camera X   UI: camera Z\n"
 		"R: zoom out   F: zoom in   Q: quit");
 }
 
