@@ -3,30 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   loop.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ynakamot  <ynakamot@student.42tokyo.j      +#+  +:+       +#+        */
+/*   By: ynakamot <ynakamot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 21:03:55 by ynakamot          #+#    #+#             */
-/*   Updated: 2022/02/19 11:16:28 by ynakamot         ###   ########.fr       */
+/*   Updated: 2022/02/20 15:30:20 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "term3d.h"
 
-void	clear_terminal(void)
-{
-	puts("\033[2J");
-}
-
-void	clear_terminal_under_here(void)
-{
-	puts("\033[0J");
-}
-
 void	print_help(void)
 {
-	clear_terminal_under_here();
-	puts("WASD: rotate object   HJKL: rotate camera"
-		"   space: toggle object rotating\n"
+	puts(CLEAR_UNDER);
+	puts("WASD: rotate object   space: toggle rotate\n"
+		"HL: camera Y   JK: camera X   UI: camera Z\n"
 		"R: zoom out   F: zoom in   Q: quit");
 }
 
@@ -34,7 +24,8 @@ void	loop(t_point *list, char **canvas)
 {
 	char	c;
 
-	clear_terminal();
+	puts(CLEAR_TERMINAL);
+	puts(DISABLE_CURSOR);
 	set_terminal_setting();
 	while (1)
 	{
@@ -47,4 +38,5 @@ void	loop(t_point *list, char **canvas)
 		usleep(60000);
 	}
 	reset_terminal_setting();
+	puts(ENABLE_CURSOR);
 }

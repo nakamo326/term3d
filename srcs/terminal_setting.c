@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   terminal_setting.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ynakamot  <ynakamot@student.42tokyo.j      +#+  +:+       +#+        */
+/*   By: ynakamot <ynakamot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 19:28:03 by ynakamot          #+#    #+#             */
-/*   Updated: 2022/02/18 19:28:03 by ynakamot         ###   ########.fr       */
+/*   Updated: 2022/02/20 02:09:44 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	set_terminal_setting(void)
 	ret = tcsetattr(STDIN_FILENO, TCSANOW, &termios_p);
 	if (ret == -1)
 		error_exit("ERROR: Failed to set non-canonical mode.");
-	return ;
 }
 
 void	reset_terminal_setting(void)
@@ -39,7 +38,6 @@ void	reset_terminal_setting(void)
 	ret = tcsetattr(STDIN_FILENO, TCSANOW, &termios_p);
 	if (ret == -1)
 		error_exit("ERROR: Failed to set canonical mode.");
-	return ;
 }
 
 char	get_control_char(void)

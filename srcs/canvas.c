@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   canvas.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ynakamot  <ynakamot@student.42tokyo.j      +#+  +:+       +#+        */
+/*   By: ynakamot <ynakamot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 21:03:55 by ynakamot          #+#    #+#             */
-/*   Updated: 2022/02/18 21:03:55 by ynakamot         ###   ########.fr       */
+/*   Updated: 2022/02/21 01:34:30 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ char	**allocate_canvas(void)
 		res[index][CANVAS_X_SIZE] = '\0';
 		index++;
 	}
-	init_canvas(res);
 	return (res);
 }
 
