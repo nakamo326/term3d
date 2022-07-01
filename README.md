@@ -6,7 +6,7 @@
 ## Overview
 
 One of the assignment of 42Tokyo.\
-This program that projects 3d point cloud file in terminal.
+This program projects the 3d point cloud file in terminal.
 
 ## Usage
 
